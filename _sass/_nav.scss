@@ -1,0 +1,172 @@
+.nav{
+  width: 100%;
+  position: absolute;
+  background-color: $color-transparent;
+  line-height: 0;
+  text-transform: uppercase;
+  display: table;
+  z-index: 1600;
+}
+.nav-off{
+  display: none;
+}
+.nav-title a{
+  float: left;
+  font-family: $header-font-family;
+  color: $color-white;
+  font-weight: 600;
+  letter-spacing: .3em;
+  padding-left: 20px;
+  text-decoration: none;
+  margin: -.1em;
+}
+.nav-title-dark a{
+  float: left;
+  font-family: $header-font-family;
+  color: $color-black;
+  font-weight: 600;
+  letter-spacing: .3em;
+  padding-left: 20px;
+  text-decoration: none;
+  margin: -.1em;
+}
+.nav-logo{
+  height: 4em;
+  width: auto;
+}
+.nav-items{
+  display: block;
+  float: right;
+  font-family: $base-font-family;
+  font-weight: 600;
+  font-size: 85%;
+  letter-spacing: .2em;
+  padding: 3em 0;
+  padding-right: 20px;
+}
+.nav-items ul{
+  margin: 0;
+  @media (max-width: $tablet) {
+    display: none;
+  }
+}
+
+.nav-items li{
+  display: inline-block;
+}
+.nav-items a{
+  font-weight: 500;
+  color: $color-white;
+  padding: 2em 1em;
+  -webkit-transition: color .2s linear; /* Saf3.2+, Chrome */
+  -moz-transition: color .2s linear; /* FF3.7+ */
+  -o-transition: color .2s linear; /* Opera 10.5 */
+  transition: color .2s linear;
+}
+.nav-items a:hover{
+  text-decoration: none;
+  color: $color-brand;
+  -webkit-transition: color .2s linear; /* Saf3.2+, Chrome */
+  -moz-transition: color .2s linear; /* FF3.7+ */
+  -o-transition: color .2s linear; /* Opera 10.5 */
+  transition: color .2s linear;
+}
+a.nav-calltoaction{
+  background: $color-brand;
+  padding:  $spacing-unit / 3.8 $spacing-unit / 2;
+  &:hover {
+    color: $color-white;
+    background: darken($color-brand, 5%);
+  }
+}
+.nav-items.dark a{
+  font-weight: 500;
+  color: $color-black;
+  padding: 2em 1em;
+  -webkit-transition: color .2s linear; /* Saf3.2+, Chrome */
+  -moz-transition: color .2s linear; /* FF3.7+ */
+  -o-transition: color .2s linear; /* Opera 10.5 */
+  transition: color .2s linear;
+}
+.nav-items.dark a.nav-calltoaction{
+  color: $color-white;
+  background: $color-brand;
+  padding:  $spacing-unit / 3.8 $spacing-unit / 2;
+  &:hover {
+    color: $color-white;
+    background: darken($color-brand, 5%);
+  }
+}
+.nav-button {
+	display: none;
+  position: absolute;
+  margin-top: -2.6em;
+  right: 20px;
+  z-index: 1600;
+  @media (max-width: $tablet) {
+    display: inline-block;
+  }
+}
+@import "../burger";
+.burger-icon {
+	@include burger(25px, 2px, 5px, $color-white);
+}
+.dark .burger-icon {
+	@include burger(25px, 2px, 5px, $color-black);
+}
+.nav-button.is-active .burger-icon {
+	@include burger-to-cross($color-black);
+}
+.nav-dropdown{
+  position: relative;
+  text-align: center;
+}
+
+.nav-dropdown li{
+  position: relative;
+  padding-bottom: $spacing-unit / 2;
+}
+//Mobile Menu
+
+.mobile-nav{
+  width: 100%;
+  height: 100%;
+  z-index: 1500;
+  text-transform: uppercase;
+  text-align: center;
+  display: none;
+  background: $color-white;
+  position: fixed;
+}
+.mobile-nav-items{
+  width: 100vw;
+  height: 100vh;
+  display: table;
+  font-family: $alt-font-family;
+  letter-spacing: .2em;
+}
+.mobile-nav-items ul{
+  width: 100vw;
+  height: 100vh;
+}
+.mobile-nav-items a{
+  font-weight: bold;
+  display: block;
+  padding: 1em 0;
+  width: 100%;
+  margin: 0 auto;
+}
+.mobile-nav-items a:hover{
+  text-decoration: none;
+  color: $color-brand;
+  -webkit-transition: color .3s linear; /* Saf3.2+, Chrome */
+  -moz-transition: color .3s linear; /* FF3.7+ */
+  -o-transition: color .3s linear; /* Opera 10.5 */
+  transition: color .3s linear;
+}
+
+img.search-icon{
+  display: inline-block;
+  height: 1.5em;
+  width: auto;
+}

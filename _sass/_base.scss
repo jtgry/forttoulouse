@@ -1,0 +1,289 @@
+
+@font-face {
+    font-family: 'playfair_displaybold';
+    src: url('/fonts/playfairdisplay/playfairdisplay-bold-webfont.woff2') format('woff2'),
+         url('/fonts/playfairdisplay/playfairdisplay-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'playfair_displaybold_italic';
+    src: url('/fonts/playfairdisplay/playfairdisplay-bolditalic-webfont.woff2') format('woff2'),
+         url('/fonts/playfairdisplay/playfairdisplay-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'playfair_displayitalic';
+    src: url('/fonts/playfairdisplay/playfairdisplay-italic-webfont.woff2') format('woff2'),
+         url('/fonts/playfairdisplay/playfairdisplay-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'playfair_displayregular';
+    src: url('/fonts/playfairdisplay/playfairdisplay-regular-webfont.woff2') format('woff2'),
+         url('/fonts/playfairdisplay/playfairdisplay-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+html{
+  font-size: 100%;
+  @media (max-width: $tablet) {
+    font-size:  90%;
+  }
+}
+/**
+ * Basic styling
+ */
+body {
+    font-weight: $base-font-weight;
+    font-family: $base-font-size;
+    line-height: $base-line-height;
+    font-family: $base-font-family;
+    color: $color-black;
+    background-color: $color-white;
+    z-index: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -moz-font-feature-settings: “liga” on;
+    font-feature-settings: "kern";
+    -webkit-font-feature-settings: "kern";
+    -moz-font-feature-settings: "kern";
+    -moz-font-feature-settings: "kern=1";
+    -ms-font-feature-settings: normal;
+}
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+}
+h1{
+  font-size: 275%;
+}
+h2{
+  font-size: 250%;
+}
+h3{
+  font-size: 225%;
+}
+h4{
+  font-size: 200%;
+}
+h5{
+  font-size: 175%;
+}
+h6{
+  font-size: 150%;
+}
+p {
+  font-family: $base-font-family;
+  font-size: 140%;
+  color: $color-black;
+  letter-spacing: -.01em;
+}
+.page-content p:first-of-type:first-letter {
+  font-family: $base-font-family;
+  font-size: 360%;
+  padding: .20em .1em 0 0;
+  margin: 0;
+  float: left;
+  line-height: .5;
+  font-weight: 400;
+}
+
+/**
+ * Images
+ */
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+/**
+ * Figures
+ */
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: $small-font-size;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+    margin-left: $spacing-unit / 2;
+}
+
+li {
+    > ul,
+    > ol {
+         margin-bottom: 0;
+    }
+}
+
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    font-family: $header-font-family;
+    color: $color-black;
+}
+
+/**
+ * Links
+ */
+a {
+    color: $color-black;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent; /* For some Androids */
+    -webkit-transition: all .3s linear; /* Saf3.2+, Chrome */
+    -moz-transition: all .3s linear; /* FF3.7+ */
+    -o-transition: all .3s linear; /* Opera 10.5 */
+    transition: all .3s linear;
+    &:visited {
+        color: $color-black;
+    }
+
+    &:hover {
+        color: $color-brand;
+        text-decoration: none;
+        -webkit-transition: color .3s linear; /* Saf3.2+, Chrome */
+        -moz-transition: color .3s linear; /* FF3.7+ */
+        -o-transition: color .3s linear; /* Opera 10.5 */
+        transition: color .3s linear;
+    }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: $color-grey-light;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: $spacing-unit / 2;
+}
+.hr-space{
+  width: 5em;
+  height: 3px;
+  margin-bottom: $spacing-unit * 1;
+  background: $color-grey-light;
+}
+/**
+ * Blockquotes
+ */
+blockquote {
+    color: $color-grey;
+    border-left: 4px solid $color-grey-light;
+    padding-left: $spacing-unit / 2;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid $color-grey-light;
+    border-radius: 3px;
+    background-color: #eef;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: auto;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.container {
+    width: 90%;
+    padding: 0 5%;
+    margin: 0 auto;
+    max-width: $content-width;
+    @media (max-width: $phone) {
+      width: 92%;
+      padding: 0 4%;
+      margin: 0 auto;
+    }
+}
+.container-wide {
+    width: 90%;
+    padding: 0 5%;
+    margin: 0 auto;
+    @media (max-width: $phone) {
+      width: 92%;
+      padding: 0 4%;
+      margin: 0 auto;
+    }
+}
+
+
+
+/**
+ * Clearfix
+ */
+%clearfix {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

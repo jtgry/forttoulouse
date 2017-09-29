@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{% include page-header.html %}
+{{ content }}
+<article>
+  {% for post in site.posts %}
+  <section class="post-item container">
+    {% for category in post.categories %}
+      <p class="post-tag">{{ category }}</p>
+    {% endfor %}
+    <h2 class="post-title">
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </h2>
+    <p class="post-meta"> {{ post.date | date: '%B %d, %Y'}} by {{ post.author }}</p>
+    <div class="page-content">
+      {{ post.content }}
+      <hr />
+    </div>
+  </section>
+  {% endfor %}
+</article>

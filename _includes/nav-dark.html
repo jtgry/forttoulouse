@@ -1,0 +1,50 @@
+<nav id="nav" class="nav fade-in-slow">
+  <div class="nav-title-dark vertical">
+    <a href="{{ site.url }}" alt="{{ site.title }}">{{ site.title }}</a>
+  </div>
+  <div class="nav-items dark">
+    <ul>
+      {% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
+      {% for page in navigation_pages %}
+        {% if page.menu == "true" %}
+          <li>
+            <a href="{{ page.url }}">{{ page.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+        <a href="#search-icon"><img class="search-icon" src="/images/search-black.svg" /></a>
+    </ul>
+    <a href="#" class="nav-button" id="navButton">
+      <span class="burger-icon"></span>
+    </a>
+  </div>
+</nav>
+<nav class="mobile-nav">
+  <div class="mobile-nav-items vertical">
+    <ul class="vertical">
+      {% for page in navigation_pages %}
+        {% if page.menu == "true" %}
+          <li>
+            <a href="{{ page.url }}">{{ page.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
+<div class="search-form-wrapper">
+  <div class="vertical">
+    <div id="search-form" class="search-form">
+      <a href="#close-icon"><img class="close-icon" src="/images/cross.svg" /></a>
+      <div class="search-form-content">
+        <form action="/search/" method="get">
+          <div class="form-group">
+            <label class="control-label">Search</label>
+            <input id="search-box" name="query" class="form-control search"/>
+          </div>
+          <input class="button" type="submit" value="search">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

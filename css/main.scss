@@ -1,0 +1,64 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Our variables
+$base-font-family: "crimson", serif;
+$base-font-size:   16px;
+$base-font-weight: 400;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.7;
+
+$alt-font-family: 'Montserrat', sans-serif;
+
+$header-font-family: 'playfair_displayregular', sans-serif;
+
+$spacing-unit:     4rem;
+
+$color-black:      rgba(30,30,30,0.9);
+$color-white:      rgba(250,250,250,0.95);
+$color-off-white:  rgba(245,245,245,0.95);
+$color-brand:      rgba(138,161,70,.9);
+$color-transparent:rgba(0,0,0,0);
+$color-grey:       rgba(200,200,200,0.9);
+$color-grey-light: lighten($color-grey, 10%);
+$color-grey-dark:  darken($color-grey, 20%);
+
+// Width of the content area
+$content-width:    780px;
+$phone:            400px;
+$tablet:           800px;
+$laptop:           1000px;
+$desktop:          1400px;
+$hd:               1800px;
+
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "jeet/jeet",
+        "animate/animate",
+        "base",
+        "nav",
+        "layout",
+        "blocks",
+        "forms",
+        "footer",
+        "util",
+        "syntax-highlighting"
+;

@@ -1,0 +1,117 @@
+---
+layout: default
+---
+{% include header.html %}
+{{ content }}
+<article>
+  {% for block in site.home %}
+  {% if block.type == "block-feature-text" %}
+  <section class="block-feature">
+    <!--<h2 class="special-title">300</h2>
+    <div class="pad"></div>
+    <h2 class="special-subtitle">Years</h2>-->
+    <h2 class="block-feature-title">{{ block.title }}</h2>
+    <hr class="hr-space" />
+      <div class="container">
+        <div class="block-feature-text">
+          {{ block.content }}
+          <a class="button" href="/journal">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+  {% if block.type == "block-feature-image" %}
+  <section class="block-feature-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url({{ block.image_path }});">
+  </section>
+  {% endif %}
+  {% if block.type == "block-banner" %}
+  <section class="block-banner" style="background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url({{ block.image_path }});">
+    <div class="vertical">
+      <div class="container">
+        <h2 class="block-banner-header">{{ block.title }}</h2>
+        <p class="block-banner-text">{{ block.content | strip_html }}</p>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+  {% if block.type == "block-featured-posts" %}
+<div class="block-wrapper">
+  <section class="block-featured-posts">
+    <h2 class="block-featured-posts-title">{{ block.title }}</h2>
+    <div class="">
+      {% for post in site.posts limit:3 %}
+        {% if post.featured == "true" %}
+          <div class="block-featured-post">
+            <div class="block-featured-post-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url({{ post.image_path }});"></div>
+            <h3 class="block-featured-post-title">{{ post.title }}</h3>
+            <p class="block-featured-post-content">{{ post.content | strip_html | truncate: 240 }}</p>
+            <a class="button" href="{{ post.url }}">Read More</a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+</div>
+  {% endif %}
+  {% if block.type == "block-sermons" %}
+  <div class="block-wrapper">
+    <section class="block-featured-posts">
+      <h2 class="block-featured-posts-title">{{ block.title }}</h2>
+      {% for sermon in site.sermons reversed limit:4 %}
+        {% if sermon.featured == "true" %}
+        <div class="block-video-post">
+          <div class="block-video-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://source.unsplash.com/{{ sermon.unsplash_id}}/600x450);">
+            <div class="vertical">
+              <h3 class="block-video-author">{{ sermon.author }}</h3>
+              <h4 class="block-video-title">{{ sermon.title }}</h4>
+              <h4 class="block-video-subtitle">{{ sermon.subtitle }}</h4>
+              <h5 class="block-video-verse">{{ sermon.book }} {{ sermon.verse }}</h5>
+              <p class="block-video-content">{{ sermon.content | strip_html | truncate: 160 }}</p>
+              <a class="button" href="{{ sermon.url }}">Listen</a>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+  </section>
+</div>
+  {% endif %}
+  {% if block.type == "block" %}
+  <section class="block">
+    <div class="block-image {% if block.image_alignment == "right" %}pull-right{% endif %}" style="background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url({{ block.image_path }});">
+    </div>
+    <div class="block-content">
+      <div class="block-text vertical">
+        <div class="container">
+          <h2 class="block-title">{{ block.title }}</h2>
+          <hr />
+          {{ block.content }}
+          <a class="button" href="/journal">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+  {% if block.type == "block-highlight" %}
+  <section class="block-highlight" style="background-image:linear-gradient(rgba(138,161,70,.9), rgba(138,161,70,.9)), url({{ block.image_path }});">
+    <h2 class="block-highlight-title">{{ block.title }}</h2>
+    <div class="container">
+      <div class="block-highlight-column">
+        <h3 class="block-highlight-item">{{ block.item_1 }}</h3>
+        <h3 class="block-highlight-time">{{ block.item_1_time }}</h3>
+      </div>
+      <div class="block-highlight-column">
+        <h3 class="block-highlight-item">{{ block.item_2 }}</h3>
+        <h3 class="block-highlight-time">{{ block.item_2_time }}</h3>
+      </div>
+    </div>
+    <div class="container">
+      <a href="{{ block.link }}" target="_blank"><h3 class="block-highlight-text">{{ block.where }}</h3></a>
+      <a class="button button-alt" target="_blank" href="{{ block.link }}">Directions</a>
+    </div>
+  </section>
+  {% endif %}
+  {% endfor %}
+  {% include contact.html %}
+</article>

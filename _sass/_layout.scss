@@ -1,0 +1,307 @@
+.header{
+  display: table;
+  width: 100%;
+  min-height: 90vh;
+  max-height: 90vh;
+  height: 90vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  @include fadeIn(
+    $delay: .5s
+  );
+  @media (max-width: $tablet) {
+    min-height: 70vh;
+    max-height: 70vh;
+    height: 70vh;
+    background-attachment: scroll;
+  }
+
+}
+
+h1.header-title{
+  font-size: 10rem;
+  text-transform: uppercase;
+  letter-spacing: 2rem;
+  color: $color-white;
+  font-family: $header-font-family;
+  margin-top: -10vh;
+  margin-bottom: 0;
+  @include fadeIn(
+    $delay: 1.5s
+  );
+  @media (max-width: $laptop) {
+    font-size:  275%;
+    letter-spacing: 1.5rem;
+  }
+  @media (max-width: $tablet) {
+    font-size:  250%;
+    letter-spacing: 1rem;
+  }
+  @media (max-width: $phone) {
+    font-size:  175%;
+    letter-spacing: .5rem;
+  }
+}
+h2.header-subtitle{
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 3rem;
+  color: $color-white;
+  font-family: $header-font-family;
+  @include fadeIn(
+    $delay: 1.5s
+  );
+  @media (max-width: $laptop) {
+    font-size:  275%;
+    letter-spacing: 1.5rem;
+  }
+  @media (max-width: $tablet) {
+    font-size:  250%;
+    letter-spacing: 1rem;
+  }
+  @media (max-width: $phone) {
+    font-size:  175%;
+    letter-spacing: .5rem;
+  }
+}
+.header-content{
+  width: 92%;
+  padding: 0 4%;
+  margin: 0 auto;
+  text-align: center;
+  display: inline-block;
+  @include fadeIn(
+    $delay: 2s
+  );
+  .button{
+    font-size: 90%;
+    padding: 1rem 1rem;
+    font-weight: bold;
+    @media (max-width: $tablet) {
+      width: 99%;
+      padding: 1rem 0;
+      font-size: 80%;
+      margin: 0;
+      margin-bottom: $spacing-unit / 4;
+    }
+    @media (max-width: $phone) {
+      width: 99%;
+      padding: 1rem 0;
+      font-size: 70%;
+      margin: 0;
+      margin-bottom: $spacing-unit / 4;
+    }
+  }
+}
+.banner-text{
+  height: 40vh;
+  width: auto;
+  margin-bottom: $spacing-unit / 3;
+  @include fadeIn(
+    $delay: 1.8s
+  );
+  @media (max-width: $tablet) {
+    height: 20vh;
+  }
+  @media (max-width: $phone) {
+    height: 10vh;
+  }
+}
+.header-text{
+  color: $color-white;
+  @include fadeIn(
+    $delay: 1.5s
+  );
+}
+.page-header{
+  display: table;
+  width: 100%;
+  min-height: 70vh;
+  max-height: 70vh;
+  height: 70vh;
+  margin-bottom: $spacing-unit;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  @include fadeIn(
+    $delay: .5s
+  );
+  @media (max-width: $tablet) {
+    background-attachment: scroll;
+  }
+
+}
+h1.page-title{
+  font-size: 400%;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  color: $color-white;
+  margin: 0;
+  @include fadeIn(
+    $delay: 1.5s
+  );
+  @media (max-width: $laptop) {
+    font-size:  300%;
+    letter-spacing: 1.5rem;
+  }
+  @media (max-width: $tablet) {
+    font-size:  250%;
+    letter-spacing: 1.2rem;
+  }
+  @media (max-width: $phone) {
+    font-size:  200%;
+    letter-spacing: 1rem;
+  }
+}
+h1.post-header-title{
+  font-size: 400%;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1rem;
+  color: $color-black;
+  @include fadeIn(
+    $delay: 1.5s
+  );
+  @media (max-width: $laptop) {
+    font-size:  300%;
+    letter-spacing: 1.5rem;
+  }
+  @media (max-width: $tablet) {
+    font-size:  250%;
+    letter-spacing: 1.2rem;
+  }
+  @media (max-width: $phone) {
+    font-size:  200%;
+    letter-spacing: 1rem;
+  }
+}
+.post{
+  @include fadeIn(
+    $delay: 1s
+  );
+}
+.post-item{
+  margin-bottom: $spacing-unit / 2;
+  @include fadeIn(
+  $delay: 2s
+  );
+}
+.post-title{
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  margin-bottom: $spacing-unit / 4;
+  line-height: 1.4;
+  font-size: 300%;
+  @media (max-width: $tablet) {
+    font-size: 200%;
+  }
+
+}
+.post-tag{
+  font-family: $alt-font-family;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 80%;
+  letter-spacing: .1em;
+  color: $color-grey-dark;
+  margin-bottom: .5em;
+}
+
+.post-meta{
+  font-family: $alt-font-family;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 80%;
+  letter-spacing: .1em;
+  color: $color-grey-dark;
+  margin-bottom: $spacing-unit / 4;
+}
+.post-meta:before{
+  position: absolute;
+  overflow: hidden;
+  width: 20%;
+  margin-top: .7em;
+  margin-left: -21%;
+  content: '\a0';
+  border: 0;
+  height: 1px;
+  border-bottom: 2px dotted;
+  margin-bottom: $spacing-unit / 2;
+  color: $color-grey-light;
+}
+.post-meta:after{
+  position: absolute;
+  overflow: hidden;
+  margin-top: .7em;
+  margin-left: 1%;
+  width: 19%;
+  content: '\a0';
+  border-bottom: 2px dotted;
+  height: 1px;
+  margin-bottom: $spacing-unit / 2;
+  color: $color-grey-light;
+}
+button,.button,a.button{
+  background: $color-transparent;
+  color: $color-brand;
+  padding: 1rem 2rem;
+  margin: 0 $spacing-unit / 4;
+  border: solid 2px $color-brand;
+  font-family: $alt-font-family;
+  font-size: 100%;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  display: inline-block;
+  -webkit-appearance: none;
+  -webkit-border-radius:0;
+  border-radius:0;
+  &:hover {
+      color: $color-white;
+      background: darken($color-brand, 5%);
+      border-color: darken($color-brand, 5%);
+      text-decoration: none;
+    }
+  &.button-alt{
+    background: $color-transparent;
+    border-color: $color-white;
+    color: $color-white;
+    text-decoration: none;
+    &:hover {
+        background: $color-brand;
+        border-color: $color-brand;
+        text-decoration: none;
+      }
+  }
+
+}
+button:focus {outline:0;}
+
+.fade-in{
+  @include fadeIn(
+    $delay: .8s
+  );
+}
+.fade-in-slow{
+  @include fadeIn(
+    $delay: 1.8s
+  );
+}
+.fade-in-slower{
+  @include fadeIn(
+    $delay: 2.0s
+  );
+}

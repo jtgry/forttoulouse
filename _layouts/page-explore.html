@@ -1,0 +1,23 @@
+---
+layout: default
+---
+{% include page-header.html %}
+<article>
+  <h2 class="block-feature-title">{{ page.title }}</h2>
+  <hr class="hr-space" />
+  <div class="block-feature-text">
+    {{ page.content }}
+  </div>
+  <div class="block-wrapper">
+  {% for item in site.explore reversed limit:12 %}
+    <div class="block-explore-post">
+      <div class="block-explore-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url({{ item.image_path }});">
+        <div class="vertical">
+          <h2 class="block-explore-title">{{ item.title }}</h2>
+          <h4 class="block-explore-subtitle">{{ item.subtitle }}</h4>
+          <a class="button" href="{{ item.url }}">Learn More</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</article>

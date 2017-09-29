@@ -1,0 +1,55 @@
+# Site settings
+title: Fort Toulouse - Fort Jackson
+email: tgray.it@gmail.com
+description: Come visit and see the recreated 1751 Fort Toulouse, Creek Indian houses, and the partially restored 1814 American Fort Jackson! You can also see a 1,000-year-old Indian mound, and experience nature on the William Bartram Nature Trail!
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "/" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+#collections
+collections:
+  home:
+  html_pages:
+    output: true
+  posts:
+    permalink: journal/:path/
+  explore:
+    output: true
+    permalink: explore/:path/
+  events:
+    output: true
+    permalink: events/:path/
+
+#SASS
+sass:
+    load_paths:
+        - _sass
+        - _sass/animate
+        - _sass/jeet
+
+mini_magick:
+    thumbnail: # Preset name
+        source: images # source directory - change this to whatever you want
+        destination: images_resized/thumbnail/images # generated destination directory
+        resize: "500x300^" # standard imagemagick options - you can chain multiple commands
+        gravity: "center"
+        extent: "500x300"
+    medium: # Preset name
+        source: images # source directory - change this to whatever you want
+        destination: images_resized/medium/images # generated destination directory
+        resize: "800x500^" # standard imagemagick options - you can chain multiple commands
+        gravity: "center"
+        extent: "800x500"
+    large: # Preset name
+        source: images # source directory - change this to whatever you want
+        destination: images_resized/large/images # generated destination directory
+        resize: "1200x700^" # standard imagemagick options - you can chain multiple commands
+        gravity: "center"
+        extent: "1200x700"

@@ -1,0 +1,209 @@
+input, select, textarea{
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent; /* For some Androids */
+  outline: none;
+
+
+}
+label.control-label {
+  font-family: $alt-font-family;
+  font-size: 120%;
+  float: left;
+}
+input.form-control {
+  font-family: $base-font-family;
+  text-align: left;
+  margin-bottom: $spacing-unit /2;
+  height:1.6em;
+  font-size: 140%;
+  width:100%;
+  background:transparent;
+  border:none;
+  border-radius: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  webkit-box-shadow: none;
+  box-shadow: none;
+  transition: all .2s ease-in-out;
+}
+select.form-control {
+  height:1.8em;
+  font-size: 140%;
+  width:100%;
+  padding: 6px 12px 0;
+  background:transparent;
+  border:none;
+  border-radius: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  webkit-box-shadow: none;
+  box-shadow: none;
+}
+select option{
+    font-size: 1.5rem;
+}
+textarea.form-control{
+  font-family: $base-font-family;
+  text-align: left;
+  margin-bottom: $spacing-unit /2;
+  height:5em;
+  font-size: 140%;
+  width:100%;
+  background:transparent;
+  border:none;
+  border-radius: 0;
+  border: 2px solid rgba(0,0,0,0.1);
+  webkit-box-shadow: none;
+  box-shadow: none;
+  transition: all .2s ease-in-out;
+
+}
+input.field:focus {
+  border:none;
+
+}
+input.button{
+  width: 100%;
+  margin: 0;
+}
+
+input[type="email"]:focus,input[type="number"]:focus,input[type="search"]:focus,input[type="text"]:focus,input[type="tel"]:focus,input[type="url"]:focus,input[type="password"]:focus,textarea:focus,select:focus {
+    outline:0px !important;
+    -webkit-appearance:none;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+input.form-control:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+input.form-control:active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+textarea.form-control:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 2px solid rgba(0,0,0,0.2);
+}
+textarea.form-control:active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 2px solid rgba(0,0,0,0.2);
+}
+.has-feedback .form-control-feedback {
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+}
+.has-success .form-control {
+    border-bottom: 1px solid #3c763d;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.has-success .form-control:focus {
+    border-bottom: 1px solid #3c763d;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.has-error .form-control {
+    border-bottom: 1px solid #a94442;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.has-error .form-control:focus {
+    border-bottom: 1px solid #a94442;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+input[type=checkbox],input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: all 0.15s ease-out 0;
+  -moz-transition: all 0.15s ease-out 0;
+  transition: all 0.15s ease-out 0;
+  background: #fafafa;
+  border: 2px solid rgba(0,0,0,0.1);
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  position: relative;
+  margin-right: 0.5rem;
+  z-index: 1000;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+input[type=checkbox]:hover,input[type=radio]:hover { background: #fafafa; }
+
+input[type=checkbox]:checked,input[type=radio]:checked { background: #fafafa; }
+
+input[type=checkbox]:checked::before,input[type=radio]:checked::before {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  content: '✔';
+  color: #888;
+  display: inline-block;
+  font-size: 26.66667px;
+  text-align: center;
+  line-height: 35px;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+input[type=file]:focus, input[type=radio]:focus, input[type=checkbox]:focus {
+    outline: none;
+    outline: 0;
+    outline-offset: 0;
+}
+.search-form-wrapper{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+}
+.search-form-wrapper-on{
+  background: $color-white;
+  z-index: 100;
+  display: table;
+}
+.search-form{
+  display: none;
+  background: $color-white;
+  width: $content-width;
+  margin: 0 auto;
+  box-shadow: 0 3px 12px rgba(150,150,150,0.10), 0 3px 12px rgba(150,150,150,0.10);
+  z-index: 200;
+}
+.search-form-content{
+  padding: $spacing-unit * 2;
+}
+.close-icon{
+  height: 1em;
+  width: auto;
+  float: right;
+  padding: $spacing-unit / 4;
+}
+.search-item{
+  list-style: none;
+  h3{
+    margin-bottom: 0;
+  }
+}
+.indicates-required{
+  color: $color-grey-dark;
+  float: right;
+}
