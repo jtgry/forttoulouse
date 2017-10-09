@@ -63,9 +63,10 @@
   -moz-transition: color .2s linear; /* FF3.7+ */
   -o-transition: color .2s linear; /* Opera 10.5 */
   transition: color .2s linear;
-  .cc-active{
-    color: $color-brand;
-  }
+
+}
+a.cc-active{
+  color: $color-brand;
 }
 .nav-items a:hover{
   text-decoration: none;
