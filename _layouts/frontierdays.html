@@ -6,7 +6,7 @@ layout: default
   {% for block in site.frontierdays %}
   {% if block.type == "block-image" %}
   <section class="block">
-    <div class="block-image {% if block.image_alignment == "right" %}pull-right{% endif %}" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images_resized/large/{{ block.image_path }});">
+    <div class="block-image {% if block.image_alignment == "right" %}pull-right{% endif %}" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images_resized/large{{ block.image_path }});">
   </section>
   {% endif %}
   {% if block.type == "block-feature-text" %}
