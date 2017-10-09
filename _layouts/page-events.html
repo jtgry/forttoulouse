@@ -2,19 +2,17 @@
 layout: default
 ---
 {% include page-header.html %}
-
 <article >
-  <h2 class="block-feature-title">{{ page.title }}</h2>
-  <hr class="hr-space" />
   <div class="container">
     <div class="block-feature-text text-center">
       {{ page.content }}
     </div>
   </div>
   <div class="block-wrapper">
-  {% for item in site.events reversed %}
-    <div class="block-explore-post">
-      <div class="block-explore-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url({{ item.image_path }});">
+  {% for item in site.events %}
+    {% if item.featured == true %}
+    <div class="block-video-post">
+      <div class="block-video-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images_resized/medium{{ item.image_path }});">
         <div class="vertical">
           <h2 class="block-explore-title">{{ item.title }}</h2>
           <h3 class="block-explore-subtitle">{{ item.subtitle }}</h4>
@@ -23,5 +21,18 @@ layout: default
         </div>
       </div>
     </div>
+    {% endif %}
+    {% if item.featured == false %}
+    <div class="block-explore-post">
+      <div class="block-explore-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images_resized/thumbnail/{{ item.image_path }});">
+        <div class="vertical">
+          <h2 class="block-explore-title">{{ item.title }}</h2>
+          <h3 class="block-explore-subtitle">{{ item.subtitle }}</h4>
+          <h4 class="block-explore-meta">{{ item.date | date: "%B %-d %Y" }}</h4>
+          <a class="button button-alt" href="{{ item.url }}">Learn More</a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
   {% endfor %}
 </article>

@@ -24,11 +24,25 @@
   font-family: $alt-font-family;
   color: $color-white;
   font-weight: bold;
+  font-size: 60%;
+  letter-spacing: .2em;
 }
 .footer-content{
   background: $color-black;
   text-align: center;
   padding: 4em 0;
+
+  a{
+    color: $color-white;
+    font-size: 80%;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+}
+.sponsored{
+  font-size: 80%;
+  letter-spacing: .2em;
+  color: $color-white;
 }
 a.footer-title{
   color: $color-white;
@@ -39,6 +53,7 @@ a.footer-title{
 }
 
 .footer-logo{
-  height: 8em;
+  height: 6em;
   width: auto;
+  padding: 0 $spacing-unit / 4;
 }

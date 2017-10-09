@@ -4,7 +4,7 @@ email: tgray.it@gmail.com
 description: Come visit and see the recreated 1751 Fort Toulouse, Creek Indian houses, and the partially restored 1814 American Fort Jackson! You can also see a 1,000-year-old Indian mound, and experience nature on the William Bartram Nature Trail!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "/" # the base hostname & protocol for your site
-
+future: true
 # Build settings
 markdown: kramdown
 plugins:
@@ -13,16 +13,19 @@ exclude:
   - Gemfile
   - Gemfile.lock
 
+google_analytics: "UA-41841096-1"
+
 #collections
 collections:
   home:
+  frontierdays:
   html_pages:
     output: true
   posts:
     permalink: journal/:path/
   explore:
     output: true
-    permalink: explore/:path/
+    permalink: /:path/
   events:
     output: true
     permalink: events/:path/
@@ -50,6 +53,6 @@ mini_magick:
     large: # Preset name
         source: images # source directory - change this to whatever you want
         destination: images_resized/large/images # generated destination directory
-        resize: "1200x700^" # standard imagemagick options - you can chain multiple commands
+        resize: "1400x800^" # standard imagemagick options - you can chain multiple commands
         gravity: "center"
-        extent: "1200x700"
+        extent: "1400x800"

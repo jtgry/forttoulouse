@@ -207,3 +207,92 @@ input[type=file]:focus, input[type=radio]:focus, input[type=checkbox]:focus {
   color: $color-grey-dark;
   float: right;
 }
+
+/* ==========================================================================
+    Google Forms
+   ========================================================================== */
+.ss-q-item-label{
+  font-family: $alt-font-family;
+  font-size: 120%;
+  float: left;
+}
+
+.ss-q-short {
+  font-family: $base-font-family;
+  text-align: left;
+  margin-bottom: $spacing-unit /2;
+  height:1.6em;
+  font-size: 140%;
+  width:100%;
+  background:transparent;
+  border:none;
+  border-radius: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  webkit-box-shadow: none;
+  box-shadow: none;
+  transition: all .2s ease-in-out;
+}
+
+.ss-q-long{
+  font-family: $base-font-family;
+  text-align: left;
+  margin-bottom: $spacing-unit /2;
+  height:5em;
+  font-size: 140%;
+  width:100%;
+  background:transparent;
+  border:none;
+  border-radius: 0;
+  border: 2px solid rgba(0,0,0,0.1);
+  webkit-box-shadow: none;
+  box-shadow: none;
+  transition: all .2s ease-in-out;
+}
+
+.ss-secondary-text .ss-q-item-label{
+	font-size:1em;
+}
+
+
+ul .ss-choice-item{
+  list-style: none;
+}
+.ss-choice-item-control{
+  font-family: $base-font-family;
+  text-align: left;
+  margin-bottom: $spacing-unit /2;
+  height:5em;
+  font-size: 140%;
+  width:100%;
+  background:transparent;
+  border:none;
+  webkit-box-shadow: none;
+  box-shadow: none;
+  transition: all .2s ease-in-out;
+}
+.ss-q-radio{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: all 0.15s ease-out 0;
+  -moz-transition: all 0.15s ease-out 0;
+  transition: all 0.15s ease-out 0;
+  background: #fafafa;
+  border: 2px solid rgba(0,0,0,0.1);
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  position: relative;
+  margin-right: 0.5rem;
+  z-index: 1000;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

@@ -107,7 +107,7 @@ h5{
 h6{
   font-size: 150%;
 }
-p {
+p{
   font-family: $base-font-family;
   font-size: 140%;
   color: $color-black;
@@ -150,7 +150,8 @@ ul, ol {
     margin-left: $spacing-unit / 2;
 }
 
-li {
+li, ol {
+    font-size: 140%;
     > ul,
     > ol {
          margin-bottom: 0;
@@ -172,7 +173,7 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $color-black;
+    color: $color-brand;
     text-decoration: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-tap-highlight-color: transparent; /* For some Androids */
@@ -181,11 +182,11 @@ a {
     -o-transition: all .3s linear; /* Opera 10.5 */
     transition: all .3s linear;
     &:visited {
-        color: $color-black;
+        color: $color-brand;
     }
 
     &:hover {
-        color: $color-brand;
+        color: darken($color-brand, 10%); ;
         text-decoration: none;
         -webkit-transition: color .3s linear; /* Saf3.2+, Chrome */
         -moz-transition: color .3s linear; /* FF3.7+ */

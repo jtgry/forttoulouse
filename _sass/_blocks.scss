@@ -300,7 +300,7 @@ h4.block-explore-meta{
   display: table;
   width: 94%;
   text-align: center;
-  padding: $spacing-unit 3% ;
+  padding: $spacing-unit * 2 3%;
   background-repeat:repeat-x;
   background-position: center center;
   background-attachment: fixed;
@@ -360,8 +360,24 @@ h3.block-highlight-text{
 .block-highlight-text p{
   color: $color-white;
 }
-
-
+.block-video-post{
+  text-align: center;
+}
+.block-video-image{
+  width: 100%;
+  height: 100%;
+  max-height: 60vh;
+  min-height: 60vh;
+  display: table;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-bottom: $spacing-unit / 2;
+}
 .sermon-block{
   display: table;
   min-height: 15vw;
