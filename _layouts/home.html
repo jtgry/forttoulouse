@@ -73,7 +73,8 @@ layout: default
   {% if block.type == "block-highlight" %}
   <section class="block-highlight" style="background-image:linear-gradient(rgba(138,161,70,.9), rgba(138,161,70,.9)), url({{ block.image_path }});">
     <div class="container">
-      <a class="button button-alt" target="_blank" href="{{ block.link }}">Directions</a>
+      <a class="button button-alt" target="_blank" href="{{ block.link-1 }}">{{ block.link-1-title }}</a>
+      <a class="button button-alt" target="_blank" href="{{ block.link-2 }}">{{ block.link-2-title }}</a>
     </div>
   </section>
   {% endif %}
