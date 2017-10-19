@@ -2,7 +2,7 @@
 layout: page
 title: Bartram Trail
 subtitle:
-image_path: /images/bartramtrail.jpg
+image_path: /images/bartramnaturetrail.jpg
 ---
 The one mile long Bartram Nature Trail winds along ridge lines and river bottoms at the southern end of the park. Of particular not along its path is a marker dedicated to Sargeant Jean Louis Fontenot who served at Fort Toulouse from 1735 to 1754. Next you will see a cemetary just off the trail to your left. Only one marker remains, that of Isaac Ross. The cemetary is privately owned but open to public viewing; however, it must be treated with respect. There is also a marker dedicated to William Bartram, the famous naturalist who passed through this area in 1775, further down the trail.
 
