@@ -2,6 +2,7 @@
 title: Living History Weekend
 layout: page
 image_path: /images/chickasaw.jpg
+date: 2018-01-01 08:00:00
 order: 1
 featured: false
 ---
