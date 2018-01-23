@@ -1,5 +1,5 @@
 ---
-title: Living History Weekend Febuary
+title: Living History Weekend
 layout: page
 image_path: /images/frenchsoldiers2.jpg
 date: 2018-02-17 08:00:00
