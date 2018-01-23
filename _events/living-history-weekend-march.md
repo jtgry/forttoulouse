@@ -1,5 +1,5 @@
 ---
-title: Living History Weekend March
+title: Living History Weekend
 layout: page
 image_path: /images/creekindians.jpg
 date: 2018-03-17 08:00:00
