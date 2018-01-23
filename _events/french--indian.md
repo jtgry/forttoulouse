@@ -3,8 +3,8 @@ title: French & Indian War Encampment
 layout: page
 image_path: /images/british.jpg
 date: 2018-04-21 08:00:00
-order: 5
-featured: true
+order: 2
+featured: false
 ---
 
 
