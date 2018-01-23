@@ -1,9 +1,9 @@
 ---
-title: Living History Weekend January
+title: Living History Weekend
 layout: page
 image_path: /images/creekwarmuster.jpg
 date: 2018-01-20 08:00:00
-order: 2
+order: 1
 featured: false
 ---
 
