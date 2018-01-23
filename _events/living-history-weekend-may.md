@@ -1,5 +1,5 @@
 ---
-title: Living History Event
+title: Living History Weekend
 layout: page
 image_path: /images/creekindian.jpg
 date: 2018-05-19 08:00:00
