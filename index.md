@@ -1,5 +1,6 @@
 ---
 layout: home
-banner_text: /images/frontierdays.svg
-background_image: /images/chickasaw.jpg
+banner_text: /images/f&i.svg
+background_image: /images/kerlerec1761.jpg
 ---
+
