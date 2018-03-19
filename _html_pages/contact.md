@@ -15,7 +15,7 @@ Park Director
 [ ove.jensenahc@gmail.com][1]
 
 **Ned Jenkins**     
-Living History Programs Coordinator & Archaeologist     
+Archaeologist     
 [ ned.jenkinsahc@gmail.com][2]
 
 
