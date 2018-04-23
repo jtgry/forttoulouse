@@ -5,8 +5,6 @@ subtitle:
 image_path: /images/campground.jpg
 ---
 
-**Due to the annual French & Indian War Encampment, the Fort Toulouse-Fort Jackson Campground will close to the public at noon on Friday, April 20th, and reopen at noon on Sunday, April 22nd.**
-
 A 39 site RV campground overlooks the Coosa River. Each site includes electric and water hook up, a grill, and concrete picnic table. There is a centrally located bath house, and a dump station positioned at the campground exit. A group tent site is available by reservation.
 
 All rules and regulations of the site are applicable to campers.
