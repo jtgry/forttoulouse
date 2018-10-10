@@ -1,12 +1,11 @@
 ---
 title: Alabama Frontier Days
 layout: frontierdays
-permalink: /frontierdays/
-image_path: "/images/chickasaw.jpg"
+permalink: "/frontierdays/"
+image_path: "/uploads/DSC_0304.jpg"
 banner_path: "/images/frontierdays.svg"
-date: 2018-11-07 08:00:00
+date: 2018-11-07 08:00:00 +0000
 order: 1
 featured: true
+
 ---
-
-
