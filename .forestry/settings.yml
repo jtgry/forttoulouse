@@ -14,15 +14,9 @@ sections:
   label: Frontierdays
   create: all
   match: "**/*"
-- type: directory
-  path: _html_pages
-  label: Html pages
-  create: all
-  match: "**/*"
 - type: jekyll-posts
   label: Posts
   create: all
-  match: "**/*"
 - type: directory
   path: _explore
   label: Explore
@@ -33,9 +27,11 @@ sections:
   label: Events
   create: all
   match: "**/*"
-- type: jekyll-pages
+- type: directory
+  path: ''
   label: Pages
   create: all
+  match: "**/*'"
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
