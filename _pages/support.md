@@ -20,6 +20,4 @@ Friends of the Forts is a non-profit organization that was established in 1985. 
 
 Friends of the Forts is always looking for new members, and we would love to have YOU! Simply, fill out the application below, and someone will be in touch shortly!
 
-Not able to join? That's OK! You can still help Friends of the Forts through a tax-deductible donation, or by volunteering!  
-
-<a href="/membershipform" class="button buttonBrand">Join</a><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KSENCM3HG9EHA" class="button buttonBrand" target="_blank">Donate</a>
+Not able to join? That's OK! You can still help Friends of the Forts through a tax-deductible donation, or by volunteering!

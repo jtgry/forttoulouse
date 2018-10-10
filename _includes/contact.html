@@ -3,7 +3,7 @@
     <h2 class="block-feature-title">Contact</h2>
     <hr />
     <div class="container">
-      <form method="post" action="/thanks/">
+      <form method="post" action="/thanks/" name="contact" netlify-honeypot="bot-field" data-netlify="true">
         <div class="form-group">
           <label class="control-label">First Name</label>
           <input type="text" class="form-control" name="firstName" id="firstName" />
@@ -20,14 +20,8 @@
           <label class="control-label" >Message</label>
           <textarea class="form-control" name="message"></textarea>
         </div>
-        <input type="hidden" name="_to" value="hello@fttoulousejackson.org">
-
-        <input type="text" name="_gotcha" style="display: none;">
-        <div class="form-group">
-          <div class="g-recaptcha" data-sitekey="6Ld5mFoUAAAAABzYz5dTIWh3D4Khr3DrFFwSNkF0"></div>
-        </div>
-        <br/>
-        <input class="button" type="submit" value="send">
+        <div class="form-group" netlify-recaptcha></div>
+        <button class="button" type="submit" value="send">Submit</button>
       </div>
     </form>
   </div>
