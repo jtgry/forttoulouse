@@ -16,3 +16,5 @@ fields:
 - type: file
   label: Banner Text
   name: banner_text
+pages:
+- index.md
