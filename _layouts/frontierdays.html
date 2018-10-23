@@ -37,7 +37,7 @@ layout: default
   {% endif %}
   {% if block.type == "block" %}
   <section class="block">
-    <div class="block-image {% if block.image_alignment == "right" %}pull-right{% endif %}" style="background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(/images_resized/large/{{ block.image_path }});">
+    <div class="block-image {% if block.image_alignment == "right" %}pull-right{% endif %}" style="background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(/images_resized/large{{ block.image_path }});">
     </div>
     <div class="block-content">
       <div class="block-text vertical">
