@@ -1,0 +1,20 @@
+---
+label: index.md
+hide_body: 
+is_partial: 
+fields:
+- name: layout
+  label: Layout
+  type: text
+  hidden: false
+  default: ''
+- name: banner_text
+  label: Banner text
+  type: text
+  hidden: false
+  default: ''
+- name: background_image
+  label: Background image
+  type: file
+  hidden: false
+  default: ''
