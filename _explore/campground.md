@@ -1,9 +1,12 @@
 ---
 layout: page
 title: Campground
-subtitle:
-image_path: /images/campground.jpg
+subtitle: 
+image_path: "/images/campground.jpg"
+
 ---
+
+**Alabama Frontier Days begins Wednesday, November 7, so please keep in mind that two areas of the park will not be available as usual.  The Campground closes to the public at 12 PM on Friday, November 2, and reopens at 12 PM on Monday, November 12; the Boat Ramp closes to the public at 3 PM on Tuesday, November 6, and reopens at 3 PM on Friday, November 9. Thank you.**
 
 A 39 site RV campground overlooks the Coosa River. Each site includes electric and water hook up, a grill, and concrete picnic table. There is a centrally located bath house, and a dump station positioned at the campground exit. A group tent site is available by reservation.
 
