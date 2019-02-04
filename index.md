@@ -1,6 +1,6 @@
 ---
 layout: home
-banner_text: "/uploads/frontierdays-1.svg"
+banner_text: "/images/F&I.svg"
 background_image: "/uploads/DSC_0304.jpg"
 
 ---

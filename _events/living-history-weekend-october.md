@@ -2,8 +2,8 @@
 title: Living History Weekend
 layout: page
 image_path: /images/rangers.jpg
-date: 2018-10-20 08:00:00
-order: 10
+date: 2019-10-19 08:00:00
+order: 7
 featured: false
 ---
 
