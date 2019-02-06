@@ -1,5 +1,5 @@
 ---
-title: War of 1812
+title: Living History Weekend
 layout: page
 image_path: /images/creekindian.jpg
 date: 2019-05-18 08:00:00
