@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{% include page-header.html %}
+<article>
+  <div class="container">
+    <div class="block-feature-text text-center">
+      {{ page.content }}
+    </div>
+  </div> 
+  <div class="block-wrapper">
+    <div class="block-explore-post">
+      <div class="block-explore-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images_resized/thumbnail/images/autosse.jpg);">
+        <div class="vertical">
+          <h2 class="block-explore-title">Creek War</h2>
+          <h3 class="block-explore-subtitle">War of 1812</h4>
+          <a class="button button-alt" href="/reenactors/creekwar/">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="block-explore-post">
+      <div class="block-explore-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images_resized/thumbnail/images/kerlerec1761.jpg);">
+        <div class="vertical">
+          <h2 class="block-explore-title">French & Indian</h2>
+          <h3 class="block-explore-subtitle">{{ item.subtitle }}</h4>
+          <a class="button button-alt" href="/reenactors/frenchcolonial/">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,4 +1,4 @@
-.block-wrapper{
+ .block-wrapper{
   display: inline-block;
   width: 94%;
   height: 100%;
@@ -264,8 +264,8 @@
 .block-explore-image{
   width: 100%;
   height: 100%;
-  max-height: 40vh;
-  min-height: 40vh;
+  max-height: 50vh;
+  min-height: 50vh;
   display: table;
   background-repeat: no-repeat;
   background-position: center center;
@@ -276,7 +276,7 @@
   background-size: cover;
 }
 h2.block-explore-title{
-  font-size: 2rem;
+  font-size: 3rem;
   color: $color-white;
   letter-spacing: .2em;
   margin: 0;
@@ -287,6 +287,7 @@ h2.block-explore-title{
 h3.block-explore-subtitle{
   color: $color-white;
   font-family: $base-font-family;
+  font-size: 2rem;
   letter-spacing: .2em;
   margin: 0;
   text-transform: uppercase;
@@ -386,118 +387,4 @@ h3.block-highlight-text{
   -o-background-size: cover;
   background-size: cover;
   margin-bottom: $spacing-unit / 2;
-}
-.sermon-block{
-  display: table;
-  min-height: 15vw;
-  max-height: 15vw;
-  height: 15vw;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  text-align: center;
-  @include col(1/4, $cycle: 4);
-  @media (max-width: $laptop) {
-    @include stack();
-    display: table;
-    min-height: 40vw;
-    max-height: 40vw;
-    height: 40vw;
-    padding-top: $spacing-unit / 2;
-    padding-bottom: $spacing-unit / 2;
-    margin-bottom: $spacing-unit / 2;
-  }
-}
-p.sermon-author{
-  color: $color-white;
-  font-family: $base-font-family;
-  letter-spacing: .2em;
-  margin: 0;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: .7em;
-  padding: 0 $spacing-unit / 4;
-  margin-bottom: $spacing-unit / 4;
-}
-p.sermon-title{
-  color: $color-brand;
-  font-family: $base-font-family;
-  letter-spacing: .2em;
-  margin: 0;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: .8em;
-  padding: 0 $spacing-unit / 4;
-  margin-bottom: $spacing-unit / 4;
-}
-p.sermon-meta{
-  color: $color-white;
-  font-family: $base-font-family;
-  letter-spacing: .2em;
-  margin: 0;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: .6em;
-  padding: 0 $spacing-unit / 4;
-  margin-bottom: $spacing-unit / 4;
-}
-.sort{
-  font-size: .8em;
-  padding: $spacing-unit / 4;
-  margin-bottom: $spacing-unit / 4;
-}
-h2.special-title{
-  position: absolute;
-  font-size: 40em;
-  text-transform: uppercase;
-  letter-spacing: 0;
-  color: $color-brand;
-  font-family: $header-font-family;
-  width: 100%;
-  margin: 0 auto;
-  margin-top: -.9em;
-  @include fadeIn(
-    $delay: 1.5s
-  );
-  @media (max-width: $laptop) {
-    font-size:  275%;
-    letter-spacing: 1.5rem;
-  }
-  @media (max-width: $tablet) {
-    font-size:  250%;
-    letter-spacing: 1rem;
-  }
-  @media (max-width: $phone) {
-    font-size:  175%;
-    letter-spacing: .5rem;
-  }
-}
-h2.special-subtitle{
-  font-size: 20em;
-  text-transform: uppercase;
-  letter-spacing: .4em;
-  text-align: center;
-  color: $color-brand;
-  font-family: $header-font-family;
-  width: 100%;
-  margin: 0 auto;
-  @include fadeIn(
-    $delay: 1.5s
-  );
-  @media (max-width: $laptop) {
-    font-size:  275%;
-    letter-spacing: 1.5rem;
-  }
-  @media (max-width: $tablet) {
-    font-size:  250%;
-    letter-spacing: 1rem;
-  }
-  @media (max-width: $phone) {
-    font-size:  175%;
-    letter-spacing: .5rem;
-  }
 }
