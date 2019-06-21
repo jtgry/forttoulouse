@@ -2,13 +2,14 @@
   width: 94%;
   height: 100%;
   padding: 0 3%;
-  grid-template-columns: repeat(2,1fr);
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(1,1fr);
   grid-column-gap: 4em;
   grid-row-gap: 4em;
   margin-bottom: $spacing-unit / 2;
   @media(min-width: $laptop){
-    display: grid;
-    justify-content: center;
+    grid-template-columns: repeat(2,1fr);
   }
 }
 .block-posts-container{
