@@ -1,8 +1,15 @@
  .block-wrapper{
-  display: inline-block;
   width: 94%;
   height: 100%;
   padding: 0 3%;
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: 4em;
+  grid-row-gap: 4em;
+  margin-bottom: $spacing-unit / 2;
+  @media(min-width: $laptop){
+    display: grid;
+    justify-content: center;
+  }
 }
 .block-posts-container{
   width: 100%;
@@ -252,14 +259,6 @@
 }
 .block-explore-post{
   text-align: center;
-  margin-bottom: $spacing-unit * 1;
-  @include col(1/2, $cycle: 2);
-  @media (max-width: $tablet) {
-    @include stack();
-    padding-top: $spacing-unit / 2;
-    padding-bottom: $spacing-unit / 2;
-    margin-bottom: $spacing-unit / 2;
-  }
 }
 .block-explore-image{
   width: 100%;
@@ -297,7 +296,8 @@ h3.block-explore-subtitle{
 h4.block-explore-meta{
   color: $color-white;
   font-family: $alt-font-family;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
   letter-spacing: .2em;
   margin: 0;
   text-transform: uppercase;
@@ -371,6 +371,7 @@ h3.block-highlight-text{
   color: $color-white;
 }
 .block-video-post{
+  grid-column: 1 / -1;
   text-align: center;
 }
 .block-video-image{
@@ -386,5 +387,4 @@ h3.block-highlight-text{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  margin-bottom: $spacing-unit / 2;
 }

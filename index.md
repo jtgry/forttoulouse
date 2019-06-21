@@ -1,6 +1,6 @@
 ---
 layout: home
-banner_text: "/images/F&I.svg"
-background_image: "/uploads/DSC_0304.jpg"
+banner_text: "/images/frontierdays.svg"
+background_image: "/images/blacksmith-1.jpg"
 
 ---
