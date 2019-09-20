@@ -4,7 +4,7 @@ title: Events
 permalink: "/events/"
 image_path: "/images/parade.jpg"
 menu: 'true'
-navigation_weight: "4"
+navigation_weight: 4
 
 ---
 **The living history program scheduled for Saturday, 21 September, is canceled due to reroofing of the Fort Toulouse barracks**
