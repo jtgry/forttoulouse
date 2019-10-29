@@ -5,7 +5,7 @@
   </div>
   <div class="nav-items">
     <ul>
-      {% assign navigation_pages = site.pages | sort: 'navigation_weight' %}
+      {% assign navigation_pages = site.pages | sort: navigation_weight %}
       {% for page in navigation_pages %}
         {% if page.menu == "true" %}
           <li>
