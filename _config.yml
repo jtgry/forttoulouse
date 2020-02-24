@@ -1,76 +1,72 @@
-# Site settings
+---
 title: Fort Toulouse - Fort Jackson
 email: tgray.it@gmail.com
-description: Come visit and see the recreated 1751 Fort Toulouse, Creek Indian houses, and the partially restored 1814 American Fort Jackson! You can also see a 1,000-year-old Indian mound, and experience nature on the William Bartram Nature Trail!
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "/" # the base hostname & protocol for your site
+description: Come visit and see the recreated 1751 Fort Toulouse, Creek Indian houses,
+  and the partially restored 1814 American Fort Jackson! You can also see a 1,000-year-old
+  Indian mound, and experience nature on the William Bartram Nature Trail!
+baseurl: ''
+url: "/"
 future: true
-# Build settings
 markdown: kramdown
 exclude:
-  - Gemfile
-  - Gemfile.lock
-
-google_analytics: "UA-41841096-1"
-
-#collections
+- vendor/bundle
+- Gemfile
+- Gemfile.lock
+google_analytics: UA-41841096-1
 collections:
-  home:
-  frontierdays:
+  home: 
+  frontierdays: 
   pages:
     output: true
   posts:
     permalink: journal/:path/
   explore:
     output: true
-    permalink: /:path/
+    permalink: "/:path/"
   events:
     output: true
     permalink: events/:path/
   reenactors:
-      output: true
-
-#SASS
+    output: true
 sass:
-    load_paths:
-        - _sass
-        - _sass/animate
-        - _sass/jeet
-
+  load_paths:
+  - _sass
+  - _sass/animate
+  - _sass/jeet
 mini_magick:
-    thumbnail: # Preset name
-        source: images # source directory - change this to whatever you want
-        destination: images_resized/thumbnail/images # generated destination directory
-        resize: "500x300^" # standard imagemagick options - you can chain multiple commands
-        gravity: "center"
-        extent: "500x300"
-    medium: # Preset name
-        source: images # source directory - change this to whatever you want
-        destination: images_resized/medium/images # generated destination directory
-        resize: "800x500^" # standard imagemagick options - you can chain multiple commands
-        gravity: "center"
-        extent: "800x500"
-    large: # Preset name
-        source: images # source directory - change this to whatever you want
-        destination: images_resized/large/images # generated destination directory
-        resize: "1400x800^" # standard imagemagick options - you can chain multiple commands
-        gravity: "center"
-        extent: "1400x800"
-    large-uploads: # Preset name
-        source: uploads # source directory - change this to whatever you want
-        destination: images_resized/large/uploads # generated destination directory
-        resize: "1400x800^" # standard imagemagick options - you can chain multiple commands
-        gravity: "center"
-        extent: "1400x800"
-    thumbnail-uploads: # Preset name
-        source: uploads # source directory - change this to whatever you want
-        destination: images_resized/thumbnail/uploads # generated destination directory
-        resize: "500x300^" # standard imagemagick options - you can chain multiple commands
-        gravity: "center"
-        extent: "500x300"
-    medium-uploads: # Preset name
-        source: uploads # source directory - change this to whatever you want
-        destination: images_resized/medium/uploads # generated destination directory
-        resize: "800x500^" # standard imagemagick options - you can chain multiple commands
-        gravity: "center"
-        extent: "800x500"
+  thumbnail:
+    source: images
+    destination: images_resized/thumbnail/images
+    resize: 500x300^
+    gravity: center
+    extent: 500x300
+  medium:
+    source: images
+    destination: images_resized/medium/images
+    resize: 800x500^
+    gravity: center
+    extent: 800x500
+  large:
+    source: images
+    destination: images_resized/large/images
+    resize: 1400x800^
+    gravity: center
+    extent: 1400x800
+  large-uploads:
+    source: uploads
+    destination: images_resized/large/uploads
+    resize: 1400x800^
+    gravity: center
+    extent: 1400x800
+  thumbnail-uploads:
+    source: uploads
+    destination: images_resized/thumbnail/uploads
+    resize: 500x300^
+    gravity: center
+    extent: 500x300
+  medium-uploads:
+    source: uploads
+    destination: images_resized/medium/uploads
+    resize: 800x500^
+    gravity: center
+    extent: 800x500
