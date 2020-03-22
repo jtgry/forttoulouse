@@ -3,7 +3,6 @@ layout: page
 title: Campground
 subtitle: 
 image_path: "/images/campground.jpg"
-
 ---
 In response to public health recommendations regarding the COVID-19, Fort Toulouse-Fort Jackson Park will closing the park campground on Sunday, March 15. Our primary concern is the health and safety of our staff, guests, and community. We look forward to reopening the campground at a later date.
 

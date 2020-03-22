@@ -1,8 +1,9 @@
 ---
-title: Living History Weekend
+title: French & Indian
+subtitle: Living History Weekend
 layout: page
-image_path: /images/fortjackson.jpg
-date: 2019-09-21 08:00:00
+image_path: /images/frenchsoldiers2.jpg
+date: 2020-09-19 08:00:00
 order: 6
 featured: false
 ---

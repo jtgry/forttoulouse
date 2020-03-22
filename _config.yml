@@ -18,7 +18,8 @@ collections:
   frontierdays: 
   pages:
     output: true
-  posts:
+  journal:
+    output: true
     permalink: journal/:path/
   explore:
     output: true

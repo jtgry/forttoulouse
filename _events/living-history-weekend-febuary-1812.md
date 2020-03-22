@@ -1,8 +1,9 @@
 ---
-title: Living History Weekend
+title: War of 1812
+subtitle: Living History Weekend
 layout: page
-image_path: /images/frenchsoldiers2.jpg
-date: 2019-02-16 08:00:00
+image_path: /images/fortjackson.jpg
+date: 2020-02-8 08:00:00
 order: 1
 featured: false
 ---

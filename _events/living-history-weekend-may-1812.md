@@ -1,9 +1,10 @@
 ---
-title: Living History Weekend
+title: War of 1812
+subtitle: Living History Weekend
 layout: page
-image_path: /images/chickasaw.jpg
-date: 2019-06-15 08:00:00
-order: 5
+image_path: /images/parade.jpg
+date: 2020-05-9 08:00:00
+order: 4
 featured: false
 ---
 

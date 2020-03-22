@@ -1,0 +1,5 @@
+{% for post in site.journal %}
+<section class="alert-banner">
+  <p><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
+</section> 
+{% endfor %}

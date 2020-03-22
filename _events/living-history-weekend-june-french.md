@@ -2,9 +2,9 @@
 title: French & Indian
 subtitle: Living History Weekend
 layout: page
-image_path: /images/creekindians.jpg
-date: 2020-03-21 08:00:00
-order: 2
+image_path: /images/frenchsoldiers1.jpg
+date: 2020-06-20 08:00:00
+order: 5
 featured: false
 ---
 

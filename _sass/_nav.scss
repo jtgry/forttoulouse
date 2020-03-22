@@ -3,7 +3,6 @@
   position: absolute;
   background-color: $color-transparent;
   line-height: 0;
-  text-transform: uppercase;
   display: table;
   z-index: 1600;
 }
@@ -14,6 +13,7 @@ a.nav-title{
   float: left;
   font-family: $header-font-family;
   color: $color-white;
+  text-transform: uppercase;
   font-weight: 600;
   letter-spacing: .3em;
   padding-left: 20px;
@@ -52,10 +52,6 @@ a.nav-logo{
 .nav-items{
   display: block;
   float: right;
-  font-family: $base-font-family;
-  font-weight: 600;
-  font-size: 60%;
-  letter-spacing: .3em;
   padding: 3em 0;
   padding-right: 20px;
   margin-top: .2em;
@@ -71,9 +67,13 @@ a.nav-logo{
   display: inline-block;
 }
 .nav-items a{
-  font-weight: 500;
+  font-family: $alt-font-family;
+  font-weight: 800;
   color: $color-white;
-  padding: 2em 1em;
+  text-transform: uppercase;
+  font-size: .8rem;
+  letter-spacing: .07em;
+  padding: 2em .5em;
   -webkit-transition: color .2s linear; /* Saf3.2+, Chrome */
   -moz-transition: color .2s linear; /* FF3.7+ */
   -o-transition: color .2s linear; /* Opera 10.5 */
@@ -188,4 +188,5 @@ img.search-icon{
   display: inline-block;
   height: 1.5em;
   width: auto;
+  font-size: .7em;
 }

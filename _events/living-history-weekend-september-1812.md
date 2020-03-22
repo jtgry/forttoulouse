@@ -1,10 +1,10 @@
 ---
-title: French & Indian
+title: War of 1812
 subtitle: Living History Weekend
 layout: page
-image_path: /images/creekindians.jpg
-date: 2020-03-21 08:00:00
-order: 2
+image_path: /images/fortjackson.jpg
+date: 2020-09-12 08:00:00
+order: 6
 featured: false
 ---
 

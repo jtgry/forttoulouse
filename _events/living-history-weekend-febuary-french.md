@@ -1,9 +1,10 @@
 ---
-title: Living History Weekend
+title: French & Indian
+subtitle: Living History Weekend
 layout: page
-image_path: /images/creekindian.jpg
-date: 2019-05-18 08:00:00
-order: 4
+image_path: /images/frenchsoldiers2.jpg
+date: 2020-02-15 08:00:00
+order: 1
 featured: false
 ---
 
