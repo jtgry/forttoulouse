@@ -1,6 +1,6 @@
 ---
 layout: page
-title: COVID-19 Update: Fort Toulouse - Fort Jackson Park Closed.
+title: "COVID-19 Update: Fort Toulouse - Fort Jackson Park Closed."
 date: 2020-03-19 08:00:00 +0000
 image_path: "/images/louisiane1733.jpg"
 permalink: "/park-update/"
