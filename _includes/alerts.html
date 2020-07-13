@@ -1,4 +1,4 @@
-{% for post in site.journal %}
+{% for post in site.journal limit:1 %}
 <section class="alert-banner">
   <p><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
 </section> 
