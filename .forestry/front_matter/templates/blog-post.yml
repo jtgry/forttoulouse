@@ -17,3 +17,5 @@ fields:
 - type: text
   name: permalink
   label: permalink
+pages:
+- _journal/alabama-frontier-days-2020-canceled.md
