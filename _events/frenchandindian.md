@@ -1,11 +1,12 @@
 ---
 title: French & Indian War Encampment
 layout: page
-image_path: /images/british.jpg
-date: 2020-04-18 08:00:00
+image_path: "/images/british.jpg"
+date: 2020-04-18T08:00:00.000+00:00
 display_date: Event Cancelled
-order: 3
+order: "3"
 featured: true
+
 ---
 **French & Indian War Encampment has been cancelled and will not be rescheduled for this year** 
 
