@@ -6,6 +6,7 @@ date: 2020-04-18T08:00:00.000+00:00
 display_date: Event Cancelled
 order: "3"
 featured: true
+published: false
 
 ---
 **French & Indian War Encampment has been cancelled and will not be rescheduled for this year** 
