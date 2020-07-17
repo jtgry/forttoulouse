@@ -44,9 +44,12 @@ a.nav-logo{
     display: block;
   }
   img{
-    height: 3em;
+    height: 4em;
     width: auto;
-    padding: $spacing-unit / 4;
+    margin-left: 1em;
+    @media (min-width: $laptop) {
+      height: 5em;
+    }
   }
 }
 .nav-items{
