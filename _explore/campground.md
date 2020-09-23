@@ -3,13 +3,8 @@ layout: page
 title: Campground
 subtitle: 
 image_path: "/images/campground.jpg"
+
 ---
-Based on a directive by Governor Ivey and the recommendations of public health officials to implement a plan for social distancing and “shelter in place” order, the Alabama Historical Commission has closed ALL historic sites and green spaces to the public, including Fort Toulouse - Fort Jackson Park.
-
-The closure update went into effect, Saturday, April 4 at 5:00 pm. All programs and events have been cancelled through April 30.
-
-AHC will continue to evaluate closures and closely monitor the situation.
-
 A 39 site RV campground overlooks the Coosa River. Each site includes electric and water hook up, a grill, and concrete picnic table. There is a centrally located bath house, and a dump station positioned at the campground exit. A group tent site is available by reservation.
 
 All rules and regulations of the site are applicable to campers.
