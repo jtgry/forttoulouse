@@ -4,7 +4,7 @@ layout: default
 {% include page-header.html %}
 <article class="container">
   {{ page.content }}
-  <form id="contact" name="Membership Form" method="POST" data-netlify="true" action="/thankyou">
+  <form id="contact" name="Membership Form" method="POST" data-netlify="true" action="/payment">
     <h2 class="form-title">Membership Form</h2>
     <div class="form-content">
       <div class="form-section">
@@ -38,12 +38,6 @@ layout: default
             <input id="Family" class="radio-button" type="radio" name="Family" value="Family" />
             <div class="radio-tile">
               <label for="Family" class="radio-label">Family - $30</label>
-            </div>
-          </div>
-          <div class="radio-button-container">
-            <input id="Lifetime" class="radio-button" type="radio" name="Lifetime" value="Lifetime" />
-            <div class="radio-tile">
-              <label for="Lifetime" class="radio-label">Lifetime - $500</label>
             </div>
           </div>
         </div>
