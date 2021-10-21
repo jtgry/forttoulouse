@@ -12,11 +12,20 @@ navigation_weight: 7
 ## Park Staff
 **Ove Jensen**  
 Park Director  
-[ ove.jensenahc@gmail.com][1]
+[ove.jensenahc@gmail.com][1]
 
 **Ned Jenkins**     
 Archaeologist     
-[ ned.jenkinsahc@gmail.com][2]
+[ned.jenkinsahc@gmail.com][2]
+
+John Gurner
+Historian
+[john.gurnerahc@gmail.com](mailto:john.gurnerahc@gmail.com)
+
+Karen Saephan
+Office Manager
+[karen.saephanahc@gmail.com](mailto:karen.saephanahc@gmail.com)
+
 
 
 ## Friends of The Forts
