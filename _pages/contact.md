@@ -14,12 +14,12 @@ navigation_weight: 7
 Park Director  
 [ove.jensenahc@gmail.com][1]
 
-John Gurner
-Historian & Living History Coordinato
+**John Gurner**
+Historian & Living History Coordinator    
 [john.gurnerahc@gmail.com](mailto:john.gurnerahc@gmail.com)
 
-Karen Saephan
-Office Manager
+**Karen Saephan**
+Office Manager    
 [karen.saephanahc@gmail.com](mailto:karen.saephanahc@gmail.com)
 
 
