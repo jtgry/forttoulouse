@@ -14,12 +14,8 @@ navigation_weight: 7
 Park Director  
 [ove.jensenahc@gmail.com][1]
 
-**Ned Jenkins**     
-Archaeologist     
-[ned.jenkinsahc@gmail.com][2]
-
 John Gurner
-Historian
+Historian & Living History Coordinato
 [john.gurnerahc@gmail.com](mailto:john.gurnerahc@gmail.com)
 
 Karen Saephan
