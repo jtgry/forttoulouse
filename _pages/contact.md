@@ -9,13 +9,8 @@ navigation_weight: 7
 
 <h3 class="text-center">Fort Toulouse - Jackson Park <br />2521 W. Fort Toulouse Road<br />Wetumpka, Alabama 36093<br/>Phone: (334) 567-3002</h3>
 
-## Park Staff
-**Ove Jensen**  
-Park Director  
-[ove.jensenahc@gmail.com][1]
-
 **John Gurner**
-Historian & Living History Coordinator    
+Park Director   
 [john.gurnerahc@gmail.com](mailto:john.gurnerahc@gmail.com)
 
 **Karen Saephan**
