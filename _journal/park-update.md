@@ -1,10 +1,10 @@
 ---
 layout: page
-title: 'Alabama Frontier Days begins Wednesday, November 5th! The Campground is closed to the public until further notice.'
-date: 2024-011-6T08:00:00.000+00:00
+title: 'Alabama Frontier Days - November 4-7, 2026! The Campground is now open.'
+date: 2026-02-15T08:00:00.000+00:00
 image_path: "/images/blacksmith-1.jpg"
 permalink: "/frontierdays/"
 published: true
 
 ---
-Alabama Frontier Days begins Wednesday, November 6! The Campground is closed to the public until further notice.
+Alabama Frontier Days is November 4-7, 2026! The Campground is now open to the public.
