@@ -1,3 +1,9 @@
+# Astro
+node_modules/
+dist/
+.astro/
+
+# Legacy build artifacts
 _site
 .sass-cache
 .jekyll-metadata

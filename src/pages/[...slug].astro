@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EntryContent from '../components/EntryContent.astro';
+import { getLatestJournalAlert, getNavigation, getRenderableEntries, pathToSlug } from '../lib/content';
+
+export async function getStaticPaths() {
+  const entries = await getRenderableEntries();
+
+  return entries
+    .filter((item) => item.url !== '/' && item.url !== '/404.html')
+    .map((item) => ({
+      params: { slug: pathToSlug(item.url) },
+      props: { entry: item.entry, url: item.url }
+    }));
+}
+
+const { entry, url } = Astro.props;
+const [navItems, alert] = await Promise.all([getNavigation(), getLatestJournalAlert()]);
+const darkNav = entry.data._layout === 'search';
+---
+
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.excerpt}
+  canonicalPath={url}
+  navItems={navItems}
+  darkNav={darkNav}
+  alert={alert}
+>
+  <EntryContent entry={entry} />
+</BaseLayout>

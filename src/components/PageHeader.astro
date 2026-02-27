@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  imagePath?: string;
+}
+
+const { title, imagePath } = Astro.props;
+---
+
+<header
+  class="page-header"
+  style={`background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imagePath ?? '/images/fortjackson.jpg'});`}
+>
+  <div class="vertical">
+    <div class="container-wide">
+      <h1 class="page-title">{title}</h1>
+    </div>
+  </div>
+</header>

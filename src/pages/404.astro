@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EntryContent from '../components/EntryContent.astro';
+import { getLatestJournalAlert, getNavigation } from '../lib/content';
+
+const [pages, navItems, alert] = await Promise.all([
+  getCollection('pages'),
+  getNavigation(),
+  getLatestJournalAlert()
+]);
+const notFoundEntry = pages.find((entry) => entry.data._layout === 'page-404') ?? pages[0];
+---
+
+<BaseLayout
+  title={notFoundEntry?.data.title ?? 'Not Found'}
+  canonicalPath="/404.html"
+  navItems={navItems}
+  alert={alert}
+>
+  {notFoundEntry ? <EntryContent entry={notFoundEntry} /> : <main class="container"><h1>Not Found</h1></main>}
+</BaseLayout>

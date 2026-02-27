@@ -1,0 +1,154 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { getEntryUrl, getLatestJournalAlert, getNavigation, toBool } from '../lib/content';
+
+const [navItems, alert, homeBlocks, journal, homePage] = await Promise.all([
+  getNavigation(),
+  getLatestJournalAlert(),
+  getCollection('home'),
+  getCollection('journal'),
+  getEntry('site', 'index')
+]);
+
+const blocks = [...homeBlocks].sort((a, b) => a.slug.localeCompare(b.slug));
+const renderedBlocks = await Promise.all(
+  blocks.map(async (block) => ({
+    block,
+    rendered: await render(block)
+  }))
+);
+const featuredPosts = journal.filter((item) => toBool(item.data.featured)).slice(0, 3);
+const fallbackPosts = featuredPosts.length ? featuredPosts : [...journal].sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0)).slice(0, 3);
+---
+
+<BaseLayout
+  title={homePage?.data.title}
+  description={homePage?.data.excerpt}
+  canonicalPath="/"
+  navItems={navItems}
+  alert={alert}
+>
+  <header
+    class="header"
+    style={`background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${homePage?.data.background_image ?? '/images/blacksmith-1.jpg'});`}
+  >
+    <div class="vertical">
+      <div class="container-wide">
+        <h1 class="header-title">{homePage?.data.header}</h1>
+        <h2 class="header-subtitle">{homePage?.data.cta}</h2>
+      </div>
+      <div class="header-content">
+        <a class="button button-alt" href="/frontierdays/">Learn More</a><a class="button button-alt" href="/support/">Donate</a><a class="button button-alt" href="/newsletter/">Newsletter</a>
+      </div>
+    </div>
+  </header>
+
+  <article>
+    {renderedBlocks.map(({ block, rendered }) => {
+      const data = block.data;
+      if (data.type === 'block-feature-text') {
+        return (
+          <section class="block-feature">
+            <h2 class="block-feature-title">{data.title}</h2>
+            <hr class="hr-space" />
+            <div class="container">
+              <div class="block-feature-text">
+                <rendered.Content />
+                <a class="button" href="/journal">Learn More</a>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      if (data.type === 'block-feature-image') {
+        return (
+          <section
+            class="block-feature-image"
+            style={`background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(${data.image_path});`}
+          ></section>
+        );
+      }
+
+      if (data.type === 'block-banner') {
+        return (
+          <section
+            class="block-banner"
+            style={`background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(${data.image_path});`}
+          >
+            <div class="vertical">
+              <div class="container">
+                <h2 class="block-banner-header">{data.title}</h2>
+                <p class="block-banner-text">{block.body}</p>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      if (data.type === 'block-featured-posts') {
+        return (
+          <div class="block-wrapper">
+            <section class="block-featured-posts">
+              <h2 class="block-featured-posts-title">{data.title}</h2>
+              <div>
+                {fallbackPosts.map((post) => (
+                  <div class="block-featured-post">
+                    <div
+                      class="block-featured-post-image"
+                      style={`background-image:linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url(${post.data.image_path});`}
+                    ></div>
+                    <h3 class="block-featured-post-title">{post.data.title}</h3>
+                    <p class="block-featured-post-content">{post.body.slice(0, 240)}...</p>
+                    <a class="button" href={getEntryUrl('journal', post)}>Read More</a>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        );
+      }
+
+      if (data.type === 'block') {
+        return (
+          <section class="block">
+            <div
+              class={`block-image ${data.image_alignment === 'right' ? 'pull-right' : ''}`}
+              style={`background-image:linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url(${data.image_path});`}
+            ></div>
+            <div class="block-content">
+              <div class="block-text vertical">
+                <div class="container">
+                  <h2 class="block-title">{data.title}</h2>
+                  <hr />
+                  <rendered.Content />
+                  <a class="button" href={data.link}>Learn More</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      if (data.type === 'block-highlight') {
+        return (
+          <section
+            class="block-highlight"
+            style={`background-image:linear-gradient(rgba(138,161,70,.9), rgba(138,161,70,.9)), url(${data.image_path});`}
+          >
+            <div class="container">
+              <a class="button button-alt" target="_blank" href={data['link-1']}>{data['link-1-title']}</a>
+              <a class="button button-alt" target="_blank" href={data['link-2']}>{data['link-2-title']}</a>
+            </div>
+          </section>
+        );
+      }
+
+      return null;
+    })}
+
+    <ContactForm />
+  </article>
+</BaseLayout>

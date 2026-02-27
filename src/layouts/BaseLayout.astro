@@ -1,0 +1,44 @@
+---
+import '../styles/main.css';
+import Head from '../components/Head.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import type { NavItem } from '../lib/content';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  navItems: NavItem[];
+  darkNav?: boolean;
+  alert?: { title: string; url: string } | null;
+}
+
+const { title, description, canonicalPath = '', navItems, darkNav = false, alert = null } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <Head title={title} description={description} canonicalPath={canonicalPath} />
+  <body>
+    <script is:inline src="https://cdn.usefathom.com/script.js" data-site="OQLRESZW" defer></script>
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-K7JWD54"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe>
+    </noscript>
+    {alert && (
+      <section class="alert-banner">
+        <p>
+          <a href={alert.url}>{alert.title}</a>
+        </p>
+      </section>
+    )}
+    <Nav items={navItems} dark={darkNav} />
+    <slot />
+    <Footer />
+  </body>
+</html>

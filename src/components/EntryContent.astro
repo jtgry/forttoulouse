@@ -1,0 +1,561 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageHeader from './PageHeader.astro';
+import ContactForm from './ContactForm.astro';
+import { formatEventDate, getEntryUrl, toBool } from '../lib/content';
+
+interface Props {
+  entry: any;
+}
+
+const { entry } = Astro.props;
+const layout = entry.data._layout ?? 'page';
+const entryUrl = getEntryUrl(entry.collection, entry);
+const entryData = entry.data as Record<string, any>;
+const title = entry.data.title ?? entry.slug;
+
+const { Content: EntryMarkdown } = await render(entry);
+
+const shouldLoadEvents = ['page-events', 'search'].includes(layout);
+const shouldLoadExplore = layout === 'page-explore';
+const shouldLoadJournal = ['journal', 'search'].includes(layout);
+const shouldLoadFrontier = layout === 'frontierdays';
+
+const events = shouldLoadEvents
+  ? [...(await getCollection('events'))].sort(
+      (a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0)
+    )
+  : [];
+const explore = shouldLoadExplore ? [...(await getCollection('explore'))].reverse() : [];
+const journal = shouldLoadJournal
+  ? [...(await getCollection('journal'))].sort(
+      (a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0)
+    )
+  : [];
+const frontierBlocks = shouldLoadFrontier ? [...(await getCollection('frontierdays'))].sort((a, b) => a.slug.localeCompare(b.slug)) : [];
+const renderedFrontierBlocks =
+  layout === 'frontierdays'
+    ? await Promise.all(
+        frontierBlocks.map(async (block) => ({
+          block,
+          rendered: await render(block)
+        }))
+      )
+    : [];
+
+const renderedJournal =
+  layout === 'journal'
+    ? await Promise.all(
+        journal.map(async (post) => ({
+          post,
+          rendered: await render(post)
+        }))
+      )
+    : [];
+
+const stripMarkdown = (value: string) =>
+  value
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/`[^`]*`/g, ' ')
+    .replace(/[>#*_\-\[\]()!]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+const searchItems =
+  layout === 'search'
+    ? [
+        ...events.map((item) => ({ id: getEntryUrl('events', item), title: item.data.title ?? item.slug, url: getEntryUrl('events', item), content: stripMarkdown(item.body ?? '') })),
+        ...journal.map((item) => ({ id: getEntryUrl('journal', item), title: item.data.title ?? item.slug, url: getEntryUrl('journal', item), content: stripMarkdown(item.body ?? '') })),
+        ...explore.map((item) => ({ id: getEntryUrl('explore', item), title: item.data.title ?? item.slug, url: getEntryUrl('explore', item), content: stripMarkdown(item.body ?? '') }))
+      ]
+    : [];
+
+const searchStore = searchItems.reduce((acc, item) => {
+  acc[item.id] = item;
+  return acc;
+}, {} as Record<string, { title: string; url: string; content: string; id: string }>);
+---
+
+{layout !== 'search' && <PageHeader title={title} imagePath={entry.data.image_path} />}
+
+{layout === 'page' && (
+  <article class="page-content container">
+    <EntryMarkdown />
+  </article>
+)}
+
+{layout === 'frontierdays' && (
+  <article>
+    <section class="block-feature">
+      <h2 class="block-feature-title">{title}</h2>
+      <hr class="hr-space" />
+      <div class="container">
+        <div class="block-feature-text">
+          <EntryMarkdown />
+        </div>
+      </div>
+    </section>
+
+    {renderedFrontierBlocks.map(({ block, rendered }) => {
+      const data = block.data;
+      const type = data.type;
+      if (type === 'block-image') {
+        return (
+          <section class="block">
+            <div
+              class={`block-image ${data.image_alignment === 'right' ? 'pull-right' : ''}`}
+              style={`background-image:linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(${data.image_path});`}
+            ></div>
+          </section>
+        );
+      }
+
+      if (type === 'block-feature-image') {
+        return (
+          <section
+            class="block-feature-image"
+            style={`background-image:linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url(${data.image_path});`}
+          ></section>
+        );
+      }
+
+      if (type === 'block-highlight') {
+        return (
+          <section
+            class="block-highlight"
+            style={`background-image:linear-gradient(rgba(138,161,70,.9), rgba(138,161,70,.9)), url(${data.image_path});`}
+          >
+            <div class="container">
+              <a class="button button-alt" target="_blank" href={data.link}>Directions</a>
+            </div>
+          </section>
+        );
+      }
+
+      return (
+        <section class={type === 'block-feature-text' ? 'block-feature' : 'block'}>
+          {type === 'block-feature-text' ? (
+            <>
+              <h2 class="block-feature-title">{data.title}</h2>
+              <hr class="hr-space" />
+              <div class="container">
+                <div class="block-feature-text">
+                  <rendered.Content />
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div
+                class={`block-image ${data.image_alignment === 'right' ? 'pull-right' : ''}`}
+                style={`background-image:linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url(${data.image_path});`}
+              ></div>
+              <div class="block-content">
+                <div class="block-text vertical">
+                  <div class="container">
+                    <h2 class="block-title">{data.title}</h2>
+                    <hr />
+                    <rendered.Content />
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </section>
+      );
+    })}
+  </article>
+)}
+
+{layout === 'page-events' && (
+  <article>
+    <div class="container">
+      <div class="block-feature-text text-center">
+        <EntryMarkdown />
+      </div>
+    </div>
+    <div class="block-wrapper">
+      {events.map((item) => {
+        const itemUrl = getEntryUrl('events', item);
+        const isFeatured = toBool(item.data.featured);
+        const dateLabel = item.data.display_date || formatEventDate(item.data.date);
+        return (
+          <div class={isFeatured ? 'block-video-post' : 'block-explore-post'}>
+            <div
+              class={isFeatured ? 'block-video-image' : 'block-explore-image'}
+              style={`background-image:linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(${item.data.image_path});`}
+            >
+              <div class="vertical">
+                <h2 class="block-explore-title">{item.data.title}</h2>
+                <h3 class="block-explore-subtitle">{item.data.subtitle}</h3>
+                <h4 class="block-explore-meta">{dateLabel}</h4>
+                <a class="button button-alt" href={itemUrl}>Learn More</a>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </article>
+)}
+
+{layout === 'page-explore' && (
+  <article>
+    <h2 class="block-feature-title">{title}</h2>
+    <hr class="hr-space" />
+    <div class="block-feature-text">
+      <EntryMarkdown />
+    </div>
+    <div class="block-wrapper">
+      {explore.map((item) => (
+        <div class="block-explore-post">
+          <div
+            class="block-explore-image"
+            style={`background-image:linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(${item.data.image_path});`}
+          >
+            <div class="vertical">
+              <h2 class="block-explore-title">{item.data.title}</h2>
+              <h4 class="block-explore-subtitle">{item.data.subtitle}</h4>
+              <a class="button button-alt" href={getEntryUrl('explore', item)}>Learn More</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </article>
+)}
+
+{layout === 'page-reenactors' && (
+  <article>
+    <div class="container">
+      <div class="block-feature-text text-center">
+        <EntryMarkdown />
+      </div>
+    </div>
+    <div class="block-wrapper">
+      <div class="block-explore-post">
+        <div
+          class="block-explore-image"
+          style="background-image:linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(/images/autosse.jpg);"
+        >
+          <div class="vertical">
+            <h2 class="block-explore-title">Creek War</h2>
+            <h3 class="block-explore-subtitle">War of 1812</h3>
+            <a class="button button-alt" href="/reenactors/creekwar/">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="block-explore-post">
+        <div
+          class="block-explore-image"
+          style="background-image:linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(/images/kerlerec1761.jpg);"
+        >
+          <div class="vertical">
+            <h2 class="block-explore-title">French &amp; Indian</h2>
+            <a class="button button-alt" href="/reenactors/frenchcolonial/">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+)}
+
+{layout === 'journal' && (
+  <article>
+    <EntryMarkdown />
+    {renderedJournal.map(({ post, rendered }) => (
+      <section class="post-item container">
+        <h2 class="post-title">
+          <a class="post-link" href={getEntryUrl('journal', post)}>{post.data.title}</a>
+        </h2>
+        <p class="post-meta">{formatEventDate(post.data.date)} by {post.data.author}</p>
+        <div class="page-content">
+          <rendered.Content />
+          <hr />
+        </div>
+      </section>
+    ))}
+  </article>
+)}
+
+{layout === 'page-visit' && (
+  <article>
+    <section class="block-feature">
+      <div class="container">
+        <div class="block-feature-text">
+          <EntryMarkdown />
+        </div>
+      </div>
+      <div class="container">
+        <h2 class="pageTitle 1">Hours &amp; Admissions</h2>
+        <hr class="hr 1" />
+        <p>
+          Park grounds are open every day of the year weather permitting. The park visitor center is open Monday through
+          Saturday except Thanksgiving, Christmas, New Year&apos;s Day and state holidays.
+        </p>
+        <h3 class="featureSubTitle">Park grounds</h3>
+        <p>8:00 am - 5:00 pm daily</p>
+        <small>Handicapped accessible except for some portions of the Bartram Trail.</small>
+        <h3 class="featureSubTitle">Visitor Center</h3>
+        <p>9:00 am - 4:00 pm Monday through Saturday.</p>
+        <h3 class="featureSubTitle">Admission</h3>
+        <p>$2.00 - Adults<br />$1.00 - Students<br /></p>
+      </div>
+    </section>
+  </article>
+)}
+
+{layout === 'page-contact' && (
+  <article class="container">
+    <EntryMarkdown />
+    <ContactForm />
+  </article>
+)}
+
+{layout === 'page-support' && (
+  <article class="page-content container">
+    <EntryMarkdown />
+    <a href="/membershipform" class="button buttonBrand">Join</a>
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KSENCM3HG9EHA" class="button buttonBrand" target="_blank">Donate</a>
+  </article>
+)}
+
+{layout === 'page-newsletter' && (
+  <article class="page-content container">
+    <div class="text-center"><EntryMarkdown /></div>
+    <div id="mc_embed_signup">
+      <form
+        action="//fttoulousejackson.us8.list-manage.com/subscribe/post?u=d33ad8f2f086b9a3f7ecc3c27&amp;id=4fd49e4556"
+        method="post"
+        id="mc-embedded-subscribe-form"
+        name="mc-embedded-subscribe-form"
+        class="validate"
+        target="_blank"
+        novalidate
+      >
+        <div id="mc_embed_signup_scroll">
+          <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+          <div class="mc-field-group">
+            <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+            <input type="email" value="" name="EMAIL" class="form-control required email" id="mce-EMAIL" />
+          </div>
+          <div class="mc-field-group">
+            <label for="mce-FNAME">First Name <span class="asterisk">*</span></label>
+            <input type="text" value="" name="FNAME" class="form-control required" id="mce-FNAME" />
+          </div>
+          <div class="mc-field-group">
+            <label for="mce-LNAME">Last Name <span class="asterisk">*</span></label>
+            <input type="text" value="" name="LNAME" class="form-control required" id="mce-LNAME" />
+          </div>
+          <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display:none"></div>
+            <div class="response" id="mce-success-response" style="display:none"></div>
+          </div>
+          <div style="position:absolute;left:-5000px" aria-hidden="true">
+            <input type="text" name="b_d33ad8f2f086b9a3f7ecc3c27_4fd49e4556" tabindex="-1" value="" />
+          </div>
+          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" /></div>
+        </div>
+      </form>
+    </div>
+  </article>
+)}
+
+{layout === 'page-membershipform' && (
+  <article class="container">
+    <EntryMarkdown />
+    <form id="contact" name="Membership Form" method="POST" netlify-honeypot="bot-field" data-netlify="true" action="/payment">
+      <h2 class="form-title">Membership Form</h2>
+      <div class="form-content">
+        <div class="form-section">
+          <div class="input-container">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-control" type="text" id="name" name="name" required />
+          </div>
+          <div class="input-container">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-control" type="email" id="email" name="email" required />
+          </div>
+          <div class="input-container">
+            <label class="form-label" for="phone">Phone Number</label>
+            <input class="form-control" type="phone" id="phone" name="phone" />
+          </div>
+          <div class="input-container">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-control" id="message" name="message"></textarea>
+          </div>
+        </div>
+        <div class="form-section">
+          <h3 class="form-title">Level of Membership?</h3>
+          <div class="radio-button-group">
+            <div class="radio-button-container">
+              <input id="Individual" class="radio-button" type="radio" name="Individual" value="Individual" />
+              <div class="radio-tile">
+                <label for="Individual" class="radio-label">Individual - $20</label>
+              </div>
+            </div>
+            <div class="radio-button-container">
+              <input id="Family" class="radio-button" type="radio" name="Family" value="Family" />
+              <div class="radio-tile">
+                <label for="Family" class="radio-label">Family - $30</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden">
+          <label>Don&apos;t fill this out if you&apos;re human: <input name="bot-field" /></label>
+        </div>
+        <div class="input-container">
+          <button class="button" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </article>
+)}
+
+{layout === 'page-payment' && (
+  <article class="container">
+    <p class="post-tag">{entryData['alt-header']}</p>
+    <div class="text-center">
+      <h3><EntryMarkdown /></h3>
+    </div>
+    <div id="payment-buttons" class="text-center">
+      <div id="smart-button-container">
+        <div style="text-align: center;">
+          <div style="margin-bottom: 1.25rem;">
+            <p>Please select your membership level.</p>
+            <select id="item-options">
+              <option value="Individual " price="20">Individual  - 20 USD</option>
+              <option value="Family" price="30">Family - 30 USD</option>
+            </select>
+            <select style="visibility: hidden" id="quantitySelect"></select>
+          </div>
+          <div id="paypal-button-container"></div>
+        </div>
+      </div>
+      <script is:inline src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD"></script>
+      <script is:inline>
+        {`function initPayPalButton() {
+          var shipping = 0;
+          var itemOptions = document.querySelector('#smart-button-container #item-options');
+          var quantity = parseInt();
+          var quantitySelect = document.querySelector('#smart-button-container #quantitySelect');
+          if (!isNaN(quantity)) {
+            quantitySelect.style.visibility = 'visible';
+          }
+          var orderDescription = 'Please select your membership level.';
+          if (orderDescription === '') {
+            orderDescription = 'Item';
+          }
+          paypal.Buttons({
+            style: { shape: 'rect', color: 'gold', layout: 'vertical', label: 'paypal' },
+            createOrder: function(data, actions) {
+              var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
+              var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute('price'));
+              var tax = 0;
+              if (quantitySelect.options.length > 0) {
+                quantity = parseInt(quantitySelect.options[quantitySelect.selectedIndex].value);
+              } else {
+                quantity = 1;
+              }
+              tax *= quantity;
+              tax = Math.round(tax * 100) / 100;
+              var priceTotal = quantity * selectedItemPrice + parseFloat(shipping) + tax;
+              priceTotal = Math.round(priceTotal * 100) / 100;
+              var itemTotalValue = Math.round(selectedItemPrice * quantity * 100) / 100;
+              return actions.order.create({
+                purchase_units: [{
+                  description: orderDescription,
+                  amount: {
+                    currency_code: 'USD',
+                    value: priceTotal,
+                    breakdown: {
+                      item_total: { currency_code: 'USD', value: itemTotalValue },
+                      shipping: { currency_code: 'USD', value: shipping },
+                      tax_total: { currency_code: 'USD', value: tax }
+                    }
+                  },
+                  items: [{
+                    name: selectedItemDescription,
+                    unit_amount: { currency_code: 'USD', value: selectedItemPrice },
+                    quantity: quantity
+                  }]
+                }]
+              });
+            },
+            onApprove: function(data, actions) {
+              return actions.order.capture().then(function() {
+                const element = document.getElementById('paypal-button-container');
+                element.innerHTML = '<h3>Thank you for your payment!</h3>';
+              });
+            },
+            onError: function(err) {
+              console.log(err);
+            }
+          }).render('#paypal-button-container');
+        }
+        initPayPalButton();`}
+      </script>
+    </div>
+    <div class="text-center">
+      <p>For check or cash payments please contact us at <a href="mailto:hello@fttoulousejackson.org">hello@fttoulousejackson.org</a></p>
+    </div>
+  </article>
+)}
+
+{layout === 'page-checkout' && (
+  <article class="container">
+    <p class="post-tag">{entryData['alt-header']}</p>
+    <div class="page-content text-center">
+      <h3><EntryMarkdown /></h3>
+    </div>
+  </article>
+)}
+
+{layout === 'page-404' && (
+  <article class="container">
+    <EntryMarkdown />
+    <p class="post-tag">404</p>
+    <div class="page-content">
+      <h2 class="post-title">Seems like we&apos;ve stumbled into no man&apos;s land.</h2>
+    </div>
+    <div class="text-center"><p>It looks like this isn&apos;t actually a page. Why not wander back <a href="/">home</a>?</p></div>
+  </article>
+)}
+
+{layout === 'page-thanks' && (
+  <article class="container">
+    <EntryMarkdown />
+    <p class="post-tag">Thanks</p>
+    <div class="page-content text-center">
+      <h3>Thank you for your message.<br /> We will contact you shortly.</h3>
+    </div>
+  </article>
+)}
+
+{layout === 'search' && (
+  <>
+    <div class="pad"></div>
+    <article class="post container">
+      <EntryMarkdown />
+      <form action="/search/" method="get">
+        <div class="form-group">
+          <label class="control-label">Search</label>
+          <input id="search-box" name="query" class="form-control search" />
+        </div>
+        <input class="button" type="submit" value="search" />
+      </form>
+      <h2 class="block-feature-title">Search Results</h2>
+      <p id="searchData" class="text-center"></p>
+      <ul id="search-results"></ul>
+      <script is:inline set:html={`window.store = ${JSON.stringify(searchStore)};`}></script>
+    </article>
+  </>
+)}
+
+{!['page', 'frontierdays', 'page-events', 'page-explore', 'page-reenactors', 'journal', 'page-visit', 'page-contact', 'page-support', 'page-newsletter', 'page-membershipform', 'page-payment', 'page-checkout', 'page-404', 'page-thanks', 'search'].includes(layout) && (
+  <article class="page-content container">
+    <EntryMarkdown />
+    <p><a href={entryUrl}>Permalink</a></p>
+  </article>
+)}

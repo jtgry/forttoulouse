@@ -1,0 +1,66 @@
+---
+import type { NavItem } from '../lib/content';
+import { siteConfig } from '../lib/site';
+
+interface Props {
+  items: NavItem[];
+  dark?: boolean;
+}
+
+const { items, dark = false } = Astro.props;
+---
+
+<nav id="nav" class="nav fade-in-slow">
+  <div class={dark ? 'nav-title-dark vertical' : 'vertical'}>
+    <a href={siteConfig.url} class={dark ? '' : 'nav-title'}>{siteConfig.title}</a>
+    {!dark && (
+      <a href={siteConfig.url} class="nav-logo">
+        <img class="nav-logo-image" src="/images/logo.png" alt={siteConfig.title} />
+      </a>
+    )}
+  </div>
+  <div class={`nav-items ${dark ? 'dark' : ''}`}>
+    <ul>
+      {items.map((item) => (
+        <li>
+          <a href={item.url}>{item.title}</a>
+        </li>
+      ))}
+      <a href="#search-icon" id="searchButton">
+        <img class="search-icon" src={dark ? '/images/search-black.svg' : '/images/search.svg'} alt="Search" />
+      </a>
+    </ul>
+    <a href="#" class="nav-button" id="navButton">
+      <span class="burger-icon"></span>
+    </a>
+  </div>
+</nav>
+
+<nav class="mobile-nav">
+  <div class="mobile-nav-items vertical">
+    <ul class="vertical">
+      {items.map((item) => (
+        <li>
+          <a href={item.url}>{item.title}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<div class="search-form-wrapper">
+  <div class="vertical">
+    <div id="search-form" class="search-form">
+      <a href="#close-icon"><img class="close-icon" src="/images/cross.svg" alt="Close" /></a>
+      <div class="search-form-content">
+        <form action="/search/" method="get">
+          <div class="form-group">
+            <label class="control-label">Search</label>
+            <input id="search-box" name="query" class="form-control search" />
+          </div>
+          <input class="button" type="submit" value="search" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
