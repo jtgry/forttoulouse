@@ -13,6 +13,7 @@ gem "jekyll", "3.6.0"
 gem "base64"
 gem "bigdecimal"
 gem "rexml"
+gem "csv"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
