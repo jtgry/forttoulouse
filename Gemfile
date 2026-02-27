@@ -11,6 +11,7 @@ ruby RUBY_VERSION
 # Happy Jekylling!
 gem "jekyll", "3.6.0"
 gem "base64"
+gem "bigdecimal"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
